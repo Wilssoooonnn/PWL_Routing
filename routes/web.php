@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\WelcomeController;
 
 Route::get('/', HomeController::class);
 Route::get('/about', AboutController::class);
@@ -19,4 +20,9 @@ Route::resource('photos', PhotoController::class)->except([
     'store',
     'update',
     'destroy'
+]);
+
+Route::get('/greeting', [
+    WelcomeController::class,
+    'greeting'
 ]);
